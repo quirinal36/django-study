@@ -24,7 +24,19 @@
             원장
         </p>
     </div>
-
+    <div>
+        <a href="{% url 'edu:new_content' %}">
+            새글등록
+        </a>
+        <ul>
+            {% for f in feed_list %}
+                <li>
+                    {{ f.content }}
+                    <img src="/media/{{f.photo}}" alt="업르드사진"/>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
     <div>
         <p>
             <a href="http://letscoding.kr">
