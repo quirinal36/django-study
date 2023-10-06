@@ -1,17 +1,56 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
     <form 
-        action="{% url 'edu:new_content' %}" 
-        method="post"
-        enctype="multipart/form-data"
-        >
+        action="{% url 'edu:new_content'%}" 
+        method="POST"
+        enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="content">내용</label>
-        <input type="text" name="content" id="content"/>
-        <br/>
-        <input type="file" name="up_photo" id="photo" accept="image/*"/>
-        <br/>
-        <input type="submit" value="저장">
+        <input type="text" name="content"/><br/>
+        <input type="file" accept="image/*" name="up_photo"><br/>
+        <input type="submit" value="저장"/>
+
+        <p>
+            <input type="number"/>
+        </p>
+        <p>
+            <input type="password"/>
+        </p>
+        <p>
+            <input type="tel"/>
+        </p>
+        <p>
+            <input type="search"/>
+        </p>
+        <p>
+            <input type="email"/>
+        </p>
+        <p>
+            <input type="url"/>
+        </p>
+        <p>
+            <input type="button" value="다음"/>
+        </p>
+        <p>
+            <input type="file" accept=".pdf"/>
+        </p>
+        <p>
+            <input type="color"/>
+        </p>
+        <p>
+            <input type="checkbox"/>아침
+            <input type="checkbox"/>점심
+            <input type="checkbox"/>저녁
+        </p>
+        <p>
+            <input type="radio" name="food"/>치킨
+            <input type="radio" name="food"/>피자
+            <input type="radio" name="food"/>파스타
+        </p>
+        <p>
+            <input type="range" min="10" max="100" step="10" value="90"/>
+        </p>
+        <p>
+            <input type="date"/>
+        </p>
     </form>
 {% endblock content %}
-    

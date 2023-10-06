@@ -29,10 +29,10 @@
             새글등록
         </a>
         <ul>
-            {% for f in feed_list %}
+            {% for feed in feed_list %}
                 <li>
-                    {{ f.content }}
-                    <img src="/media/{{f.photo}}" alt="업르드사진"/>
+                {{ feed.content }}
+                <img src="/media/{{feed.photo}}" width="100px"/>
                 </li>
             {% endfor %}
         </ul>
