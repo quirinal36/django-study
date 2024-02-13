@@ -1,0 +1,321 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@font-face {
+    font-family: 'TTHakgyoansimUndongjangL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimUndongjangL.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html, body {
+    font-size: 10px;
+}
+
+.no-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bt-wrap {
+    
+}
+
+.bt-wrap button {
+    padding: 12px 20px 14px 20px;
+    background: #fff;
+    border: 0;
+    line-height: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+}
+
+.index #header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+}
+
+
+.index #header > div {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+
+.index #header > div > div {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.index #header h1 {
+    line-height: 140%;
+    font-family: 'TTHakgyoansimUndongjangL';
+    font-size: 2.8rem;
+    color: #fff;
+}
+
+.index #header .bt-wrap {
+    margin-top: 60px;
+}
+
+.index #header span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.index #main {
+    padding: 0 20px 100px 20px;
+}
+
+.index #main h1 {
+    padding: 30px 0;
+    line-height: 140%;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.index #main label {
+    display: block;
+}
+
+.index #main fieldset {
+    padding: 40px 0;
+    border: 0;
+    border-top: 1px solid #000;
+    line-height: 160%;
+    font-size: 0;
+}
+
+.index #main fieldset strong {
+    display: block;
+    margin-bottom: 16px;
+    line-height: 160%;
+    font-family: 'TTHakgyoansimUndongjangL';
+    font-size: 2rem;
+    font-weight: 600;
+    word-break: keep-all;
+}
+
+.index #main fieldset input[type="radio"],
+.index #main fieldset span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: top;
+}
+
+.index #main fieldset input[type="radio"] {
+    width: 30px;
+    margin-top: 5px;
+}
+
+.index #main fieldset span {
+    width: calc(100% - 30px);
+    height: auto;
+    line-height: 24px;
+    font-size: 1.4rem;
+    word-break: keep-all;
+}
+
+.index #main .bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.index #main .bottom .progress {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: calc(100% - 160px);
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.index #main .bottom .progress span {
+    display: block;
+    width: 0;
+    height: 20px;
+    background: #000;
+    transition: width 1s ease;
+}
+
+.bt {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background: transparent;
+    line-height: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #999;
+}
+
+a.bt {
+    padding-top: 12px;
+}
+
+.bt.on {
+    border-color: #000;
+    color: #000;
+    cursor: pointer;
+}
+
+#mbtiResult p {
+    padding: 18px 0 0 10px;
+    font-size: 1.6rem;
+}
+
+#sub-wrap {
+    padding: 40px 20px 80px 20px;
+}
+
+#sub-wrap h2 {
+    font-family: 'TTHakgyoansimUndongjangL';
+    font-size: 2.4rem;
+}
+
+#sub-wrap h2 + p {
+    margin: 10px 0 30px 0;
+    font-size: 1.4rem;
+    word-break: keep-all;
+}
+
+#sub-wrap h3 {
+    font-size: 1.6rem;
+}
+
+#sub-wrap ul {
+    margin: 10px 0 30px 0;
+    padding: 12px;
+    background: #E5FCC2;
+    border-top: 3px solid #74E291;
+}
+
+#sub-wrap ul:nth-of-type(2) {
+    background: #FFDFDF;
+    border-top: 3px solid #F875AA;
+}
+
+#sub-wrap ul li {
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+
+#sub-wrap .bt-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    font-size: 0;
+}
+
+#sub-wrap .bt-wrap a {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    padding-top: 17px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+#sub-wrap .bt-wrap a:last-child {
+    background: #000;
+    color: #fff;
+}
+
+
+/* 로딩 애니메이션 스타일 */
+.loading-container {
+}
+
+.loading {
+    border: 8px solid #f5f5f5; /* 회전하는 원의 테두리 색상 */
+    border-top: 8px solid #000; /* 회전하는 원의 색상 */
+    border-radius: 50%; /* 원 모양으로 만들기 */
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    animation: spin 1s linear infinite; /* 회전 애니메이션 설정 */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#sub-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+}
+
+#sub-header > div {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#sub-header > div > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#sub-header p {
+    display: block;
+    margin-top: 40px;
+    line-height: 180%;
+    font-size: 1.2rem;
+}
+
+#sub-header p b {
+    font-size: 1.6rem;
+}

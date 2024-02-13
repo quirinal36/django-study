@@ -1,12 +1,233 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>환영합니다. 저의 첫 번째 웹사이트 입니다.</p>
-    <p>
-        <a href="https://www.naver.com">naver</a>
-        <br>
-        <a href="http://letscoding.kr">
-            <img src="http://letscoding.kr/img/logo.png" width='30' height='30'>
-        </a>
-        <br>
-    </p>
+{% load static %}
+<div id="wrap" class="index">
+    <div id="header">
+        <div>
+            <div>
+                <h1>투자 스타일로<br> 내 MBTI 찾기</h1>
+                <div class="bt-wrap">
+                    <button>시작하기</button>
+                </div>
+                <span>렛츠코딩앤플레이 063-714-2536</span>
+            </div>
+        </div>
+    </div>
+  
+    <div id="main">
+        <h1>투자 스타일로 내 MBTI 찾기</h1>
+         <!-- E/I S/N T/F J/P -->
+        <form id="mbtiForm">
+            <script>
+                // 배열을 섞기 위한 함수
+                function shuffleArray(array) {
+                    for (let i = array.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [array[i], array[j]] = [array[j], array[i]];
+                    }
+                }
+
+                // 질문의 순서를 저장할 배열
+                const questionOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                // 배열을 섞음
+                shuffleArray(questionOrder);
+
+                // 무작위로 섞인 순서대로 질문을 표시
+                questionOrder.forEach((questionNumber) => {
+                    let questionText = "";
+                    let option1 = "";
+                    let option2 = "";
+                    let value1 = "";
+                    let value2 = "";
+
+                    // 각 질문에 대한 텍스트와 옵션을 설정
+                    switch (questionNumber) {
+                        case 1:
+                            questionText = "어떤 투자 스타일을 선호하나요?";
+                            option1 = "신규 개발이 예정된 도시의 주택 시장에 주목한다.";
+                            option2 = "안정된 지역의 부동산 시장을 선호한다.";
+                            value1 = "E";
+                            value2 = "I";
+                            break;
+                        case 2:
+                            questionText = "부동산 시장에 대한 정보를 어떻게 수집하고 있나요?";
+                            option1 = "다양한 채널을 통해 정보를 수집하고 다양한 의견을 듣는 것을 선호한다.";
+                            option2 = "신중하게 선별된 정보에 의존하며 신중한 분석을 선호한다.";
+                            value1 = "E";
+                            value2 = "I";
+                            break;
+                        case 3:
+                            questionText = "재무적인 측면에서 어떤 기준으로 투자 결정을 내리고 있나요?";
+                            option1 = "높은 수익을 위해 높은 리스크를 감수할 수 있다.";
+                            option2 = "안정적이고 예측 가능한 수익을 추구하며 보수적인 자세를 취한다.";
+                            value1 = "E";
+                            value2 = "I";
+                            break;
+                        case 4:
+                            questionText = "현재 부동산 시장에서 어떤 동향을 주목하고 있나요?";
+                            option1 = "현재의 데이터와 통계를 토대로 시장 동향을 예측하며 실제 사례에 의존한다.";
+                            option2 = "향후의 가능성과 추상적인 동향을 고려하며 미래를 예측하는 경향이 있다.";
+                            value1 = "S";
+                            value2 = "N";
+                            break;
+                        case 5:
+                            questionText = "나의 투자 전략에는 어떤 특징이 있나요?";
+                            option1 = "실제 경험과 입증된 방법을 바탕으로 한 구체적인 전략을 선호한다.";
+                            option2 = "새로운 아이디어와 트렌드를 적극적으로 통합하며 유연한 전략을 채택한다.";
+                            value1 = "S";
+                            value2 = "N";
+                        break;
+                        case 6:
+                            questionText = "자산을 어떻게 평가하고 있나요?";
+                            option1 = "현재 시장 가치와 수치적인 측면을 중요시하며 안정된 자산을 선호한다.";
+                            option2 = "잠재적인 가치와 비전을 고려하여 미래 가치를 중시하는 경향이 있다.";
+                            value1 = "S";
+                            value2 = "N";
+                            break;
+                        case 7:
+                            questionText = "자산 평가에 대해 어떤 기준과 방법을 주로 활용하시나요?";
+                            option1 = "자세한 분석과 실적에 기반하여 투자 결정을 내리는 경향이 있다.";
+                            option2 = "직관과 감각에 의존하여 투자 결정을 내리며 미래의 가능성을 고려한다.";
+                            value1 = "T";
+                            value2 = "F";
+                            break;
+                        case 8:
+                            questionText = "어떤 방식으로 투자 전략을 수립하고 있나요?";
+                            option1 = "명확하고 계획적인 전략을 세우며 목표를 달성하기 위해 계획을 따른다.";
+                            option2 = "상황에 따라 적응하며 자유로운 스타일로 투자 결정을 내린다.";
+                            value1 = "T";
+                            value2 = "F";
+                        break;
+                        case 9:
+                            questionText = "부동산 시장에서 어떻게 리스크를 파악하고 관리하고 있나요?";
+                            option1 = "가능한 모든 리스크를 고려하며 방어적으로 자산을 관리한다.";
+                            option2 = "기회를 놓치지 않기 위해 일정 수준의 리스크를 감수할 수 있다.";
+                            value1 = "T";
+                            value2 = "F";
+                            break;
+                        case 10:
+                            questionText = "부동산 투자를 할 때, 자신의 성향을 어떻게 평가하시나요?";
+                            option1 = "계획을 세우고 목표를 중시하여 일을 추진하는 경향이 있다.";
+                            option2 = "유연하게 상황에 적응하며 새로운 가능성을 탐험하는 경향이 있다.";
+                            value1 = "J";
+                            value2 = "P";
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    document.write(`
+                        <fieldset>
+                            <strong>${questionText}</strong>
+                            <p><input type="radio" name="q${questionNumber}" value="${value1}" onclick="updateProgress()"> <span>${option1}</span></p>
+                            <p><input type="radio" name="q${questionNumber}" value="${value2}" onclick="updateProgress()"> <span>${option2}</span></p>
+                        </fieldset>
+                    `);
+                });
+
+                // 선택한 답변에 따라 진행도 표시 업데이트
+                function updateProgress() {
+                    const answeredQuestions = document.querySelectorAll('input[name^="q"]:checked').length;
+                    const totalQuestions = questionOrder.length;
+                    const progressPercent = (answeredQuestions / totalQuestions) * 100;
+
+                    const progressBar = document.querySelector('.progress span');
+                    progressBar.style.width = `${progressPercent}%`;
+
+                    // 진행도가 100%인 경우 버튼에 'on' 클래스 추가
+                    const button = document.querySelector('.bottom button');
+                    if (progressPercent === 100) {
+                        button.classList.add('on');
+                    } else {
+                        button.classList.remove('on');
+                    }
+                }
+
+
+                function disableRadioButtons() {
+                    // 모든 input[type="radio"] 요소 가져오기
+                    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+                    // 각 라디오 버튼을 비활성화
+                    radioButtons.forEach((radioButton) => {
+                        radioButton.disabled = true;
+                    });
+                }
+
+
+                // MBTI 결과를 계산하는 함수
+                function calculateMBTI() {
+                    const mbtiCount = {
+                        E: 0,
+                        I: 0,
+                        S: 0,
+                        N: 0,
+                        T: 0,
+                        F: 0,
+                        J: 0,
+                        P: 0
+                    };
+
+                    // 각 질문에 대한 사용자의 선택 값을 가져와서 점수 계산
+                    questionOrder.forEach((questionNumber) => {
+                        const selectedValue = document.querySelector(`input[name=q${questionNumber}]:checked`);
+                        mbtiCount[selectedValue.value]++;
+                    });
+
+                    // MBTI 특성 비교 및 결과 계산
+                    const mbtiResult = [];
+                    if (mbtiCount['E'] > mbtiCount['I']) mbtiResult.push('E');
+                    else mbtiResult.push('I');
+
+                    if (mbtiCount['S'] > mbtiCount['N']) mbtiResult.push('S');
+                    else mbtiResult.push('N');
+
+                    if (mbtiCount['T'] > mbtiCount['F']) mbtiResult.push('T');
+                    else mbtiResult.push('F');
+
+                    if (mbtiCount['J'] > mbtiCount['P']) mbtiResult.push('J');
+                    else mbtiResult.push('P');
+
+                    // 결과 표시할 엘리먼트 가져오기
+                    const resultElement = document.getElementById("mbtiResult");
+
+                    // MBTI 결과에 따른 텍스트 및 링크 생성
+                    const mbtiType = mbtiResult.join('');
+                    const resultText = `당신의 투자 MBTI는 <strong>${mbtiType}</strong>입니다. <a href="/edu/result?type=${mbtiType}" class="bt on">자세히보기</a>`;
+
+                    // 결과 출력
+                    resultElement.innerHTML = `<p>${resultText}</p>`;
+
+                    // 결과보기 버튼 숨기기
+                    $("#result-bt").hide();
+
+                    // 프로그레스 바 숨기기
+                    $(".progress").hide();
+
+                    // 결과 나타내기
+                    $("#mbtiResult").show();
+
+                    // 결과 확인 버튼을 누르면 input[type="radio"]를 클릭 못하게 비활성화
+                    disableRadioButtons();
+                }
+
+                
+            
+            </script>
+            <div class="bottom">
+                <p class="progress"><span></span></p>
+                <div id="mbtiResult"></div>
+                <button type="button" id="result-bt" class="bt" onclick="calculateMBTI()">결과 확인</button>
+            </div>
+        </form>
+        
+    </div>
+    
+  
+    <div id="footer">
+        
+    </div>
+</div>
 {% endblock %}

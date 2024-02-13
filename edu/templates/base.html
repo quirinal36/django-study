@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="no-scroll">
     <head>
-        <title>렛츠코딩 입니다.</title>
-        {% block extrahead %}
-        {% endblock %}
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:image" content="{% static 'edu/asset/og.gif' %}">
+        <title>MBTI 유형으로 분석하는 투자 전략</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="{% static 'edu/asset/code.js'%}" defer></script>
+        <script src="{% static 'edu/asset/sub.js' %}" defer></script>
+        <link rel="stylesheet" href="{% static 'edu/asset/style.css'%}">
     </head>
     <body>
         {% block content %}
